@@ -11,6 +11,21 @@ page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, 'html.parser')
 
-container = soup.find_all('div', class_ = 'item-container')
-#print(soup.a)
-print(container.a[title])
+containers = soup.findAll("div",{"class":"item-info"})
+prices = soup.findAll("ul",{"class":"price    "})
+
+for container in containers:
+        model = container.findAll("a",{"class":"item-title"})
+        product_model = model[0].text
+
+#for price in prices:
+      #  price = prices.findAll("ul",{"class":"price-current-label"})
+      #  product_price = price[0].text
+
+
+        
+        
+        print(product_model)
+        #print(len(product_model))
+       # print(product_price)
+  
