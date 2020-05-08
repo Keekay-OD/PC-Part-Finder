@@ -19,7 +19,7 @@ for container in containers:
         product_model = containers[0].text 
 
 for price in prices:
-       #price = prices.find("li",{"class":"price-current"})
+       price = prices.find("li",{"class":"price-current"})
        product_price = prices[0].text
 
 
