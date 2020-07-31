@@ -32,12 +32,12 @@ with file:
                         models = []
                         # print(model_container)
                         product_model = container.find("a", attrs={"class": "item-title"}).text
-                        models.append(product_model)
+                        models.append((product_model))
 
                         print("Brand: " + product_model )
 
                         #file.write(product_model)
-        writer.writerow(product_model)
+        writer.writerow({product_model})
 
 file.close()
 
