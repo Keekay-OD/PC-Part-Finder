@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import xlsxwriter
+
 
 
 
@@ -18,10 +18,8 @@ containers = soup.findAll("div", {"class": "item-cell"})
 
 
 
-workbook = xlsxwriter.Workbook('Expenses01.xlsx')
-worksheet = workbook.add_worksheet()
 
-#filename = "products.csv"
+workbook = "products.csv"
 file = open(workbook, "w", newline='')
 
 row = 0 
@@ -35,19 +33,28 @@ with file:
 
         for container in containers:
                         models = []
+                        prices = []
                         # print(model_container)
                         product_model = container.find("a", attrs={"class": "item-title"}).text
+                        product_price = container.find("li", attrs={"class": "price-current"}).text
+                        models.append(product_model)
+                        prices.append(product_price)
+           
+                        
+                        
 
-                        models.append([product_model])
+        
                         
-                        
-                        #print("Brand: " + product_model )
                         
                          
 
                         #file.write(product_model)
         #writer.writerow({'Brand' , models})
 print("This is the length of the list :", len(product_model))
+print(models)
+print(prices)
+
+
 file.close()
 
 
