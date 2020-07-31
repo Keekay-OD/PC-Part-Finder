@@ -22,7 +22,7 @@ workbook = xlsxwriter.Workbook('Expenses01.xlsx')
 worksheet = workbook.add_worksheet()
 
 #filename = "products.csv"
-file = open(filename, "w", newline='')
+file = open(workbook, "w", newline='')
 
 row = 0 
 col = 0 
