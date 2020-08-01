@@ -32,8 +32,6 @@ titless = ['Price:']
 
 
 
-models = []
-prices = []
 
 with file:
 
@@ -47,7 +45,7 @@ with file:
         for row in models:
             for col in row:
                 print("%10s"%col),
-            print('\n')
+            print('\n ')
         writer = csv.writer(file, quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow([product_model])
         writer.writerow([product_price])
