@@ -15,13 +15,13 @@ containers = soup.findAll("div", {"class": "item-cell"})
 
 
 workbook = "products.csv"
-file = open(workbook, "w", newline='')
+file = open(workbook, "w", delimiter=',')
 
 #DATE AND TIME 
 today = datetime.now()
 d2 = today.strftime("%B %d, %Y %H:%M")
 
-headers = "This list was updated last on: " + d2 + "\n" "\n"
+headers = "Price" + "Model" + "\n" "\n"
 file.write(headers)
 
 titles = ['Model:']
@@ -45,9 +45,12 @@ with file:
 
     
 
-        writer = csv.writer(file, quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        writer.writerow([product_model])
-        writer.writerow([product_price])
+        #writer = csv.writer(file, lineterminator='\n')
+        
+
+        
+        #writer.writerow([product_model])
+        #writer.writerow([product_price])
         
 
 #CSV FUNCTIONS         
