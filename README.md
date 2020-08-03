@@ -2,7 +2,7 @@
 Web Scraper
 
 
-This searches Newegg.com for the latest GPU prices and organizes them in an Excell Spreadsheet
+This searches Newegg.com for the latest GPU prices and organizes them in an Excell Spreadsheet and Json File.
 
 
 
