@@ -1,4 +1,4 @@
-# computer-part-price-finder
+# Command Line PC Part Finder 
 Web Scraper
 
 
