@@ -1,67 +1,49 @@
-import requests
 from bs4 import BeautifulSoup
+import urllib.request
+import re
 import csv
-from datetime import datetime
 
 
-URL = 'https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709&PageSize=96'
-
-
-page = requests.get(URL)
-
-soup = BeautifulSoup(page.content, 'html.parser')
-
-containers = soup.findAll("div", {"class": "item-cell"})
-
-
-workbook = "products.csv"
-file = open(workbook, "w", delimiter=',')
 
 #DATE AND TIME 
 today = datetime.now()
 d2 = today.strftime("%B %d, %Y %H:%M")
 
-headers = "Price" + "Model" + "\n" "\n"
-file.write(headers)
 
-titles = ['Model:']
-titless = ['Price:']
+#Website you will be scraping from
+url = "https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709&PageSize=96"
 
-
-
-
-
-
+page = urllib.request.urlopen(url)
+soup = BeautifulSoup(page, 'html.parser')
+regex = re.compile('^tocsection-')
+workbook = "products.csv"
+file = open(workbook, "w")
 models = []
 prices = []
 
-with file:
+#Finding All the data from within that tag
+product_model = soup.findAll("a", attrs={"class": "item-title"})
+product_price = soup.find_all("li", attrs={"class": "price-current"})
 
-    for container in containers:
-        product_model = container.find("a", attrs={"class": "item-title"}).get_text()
-        product_price = container.find("li", attrs={"class": "price-current"}).get_text().strip()[0:7]
-        models.append(product_model)
-        prices.append(product_price)
 
+#Parsing the data from all the extra html
+
+for a in product_model:
+    models.append(a.getText())
+for li in product_price:
+    prices.append(li.getText().split('\n')[0].strip()[0:7])
+
+
+#converting list from data to Dictionary
+
+with open('products.csv', 'a') as f:
+    dictionary = dict(zip(models, prices))
+    field_names = ['Prices:''\n''Models']
+    dict_writer = csv.DictWriter(file, fieldnames=field_names)
+    writer = csv.writer(file)
+    dict_writer.writeheader()
     
-
-        #writer = csv.writer(file, lineterminator='\n')
-        
-
-        
-        #writer.writerow([product_model])
-        #writer.writerow([product_price])
-        
-
-#CSV FUNCTIONS         
-
-
-
+    #writing to CSV file 
+    for key, value in dictionary.items():
+        writer.writerow([key, value])
 file.close()
-
-#file.write(product_model + "\n " + product_price)
-
-
-
-
-
