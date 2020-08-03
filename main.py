@@ -8,6 +8,7 @@ import sys
 
 def main():
     login()
+    
 
 def login():
     print("-------------------------------------")
@@ -41,16 +42,22 @@ def menu():
     elif choice=="3":
         showall()
     elif choice=="4":
+        showall()
+    elif choice=="5":
+        showall()
+    elif choice=="6":
         sys.exit
     else:
-        print("You must only select either 1,2, or 3.")
+        print("You must only select either 1-6.")
         print("Please try again")
         menu()
 
 
+
+
 def showall():
     for x in dictionary:
-        print (x)
+        print (x,':')
         for y in dictionary[x]:
             print (y,':',dictionary)
     menu()
