@@ -3,6 +3,60 @@ import urllib.request
 import re
 import csv
 import json
+import time
+import sys
+
+def main():
+    login()
+
+def login():
+    print("-------------------------------------")
+    print("This program Searches for the prices of the Latest GPU's on NewEgg.com")
+    time.sleep(1)
+    print("-------------------------------------")
+    print('A copy of the latest prices and models has been saved as a CSV file')
+    print("-------------------------------------")
+    time.sleep(2)
+    menu()
+
+def menu():
+    print("************MAIN MENU**************")
+    time.sleep(1)
+    print()
+
+    choice = input("""
+        1: Search By Brand
+        2: Search By Price
+        3: Search By Memory
+        4: Search By Keyword
+        5: Show All
+        6: Quit/Log Out
+
+        Please enter your choice: """)
+
+    if choice == "1":
+        searchbrand()
+    elif choice == "2":
+        searchprice()
+    elif choice=="3":
+        showall()
+    elif choice=="4":
+        sys.exit
+    else:
+        print("You must only select either 1,2, or 3.")
+        print("Please try again")
+        menu()
+
+
+def showall():
+    for x in dictionary:
+        print (x)
+        for y in dictionary[x]:
+            print (y,':',dictionary)
+    menu()
+
+
+
 
 
 # Website you will be scraping from
@@ -37,10 +91,16 @@ with open('products.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['Model', 'Prices'])
 
-    # writing to CSV file/Json
+    # Writing to CSV file/Json
     for key, value in dictionary.items():
         writer.writerow([key, value])
     with open('data.json','w') as fp:
         json.dump(dictionary,fp)
     
 file.close()
+
+
+main()
+
+
+

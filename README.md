@@ -10,6 +10,7 @@ This searches Newegg.com for the latest GPU prices and organizes them in an Exce
 
 
 ![Numbers](./screenshot.png "CSV/Excel File Output")
+![Iterm](./screenshot2.png "Terminal Output")
 
 
 
