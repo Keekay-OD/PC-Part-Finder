@@ -1,0 +1,23 @@
+{% extends 'resultsbase.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+<table>
+    {% for key, value in result.iteritems() %}
+       <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+       </tr>
+    {% endfor %}
+    </table>
+
+

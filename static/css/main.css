@@ -14,6 +14,7 @@ html {
    */
   body {
     margin: 0;
+    
   }
   
   /**
@@ -148,7 +149,7 @@ html {
    */
   mark {
     background-color: #ff0;
-    color: #000;
+    color: rgb(19, 32, 221);
   }
   
   /**
@@ -846,12 +847,14 @@ html {
   
   .s129 form .inner-form {
     width: 100%;
+    
   }
   
   .s129 form .inner-form .input-field {
     height: 80px;
     width: 100%;
     position: relative;
+    
   }
   .s122 i  {
     width: 70px;
