@@ -17,7 +17,8 @@ def login():
     print("-------------------------------------")
     print('A copy of the latest prices and models has been saved as a CSV file')
     print("-------------------------------------")
-    time.sleep(2)
+    print(len(dictionary), 'GPUs found on Newegg.com')
+    time.sleep(1)
     menu()
 
 def menu():
@@ -33,7 +34,7 @@ def menu():
         5: Show All
         6: Quit/Log Out
 
-        Please enter your choice: """)
+   Please enter your choice: """)
 
     if choice == "1":
         searchbrand()
@@ -52,7 +53,22 @@ def menu():
         print("Please try again")
         menu()
 
-
+def searchbrand():
+    keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
+    for i in range(0, len(dictionary), 1):
+        if dictionary[i] == keyVal:
+            print(dictionary)
+			
+    else:
+        print('This GPU isnt on Newegg.com')
+        menu()   
+    
+    
+     
+    
+    
+   
+  
 
 
 def showall():
@@ -69,7 +85,7 @@ def showall():
 # Website you will be scraping from
 url = "https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709&PageSize=96"
 
-page = urllib.request.urlopen(url)
+page = urllib.request.urlopen(url)      
 soup = BeautifulSoup(page, 'html.parser')
 regex = re.compile('^tocsection-')
 workbook = "products.csv"
@@ -101,10 +117,11 @@ with open('products.csv', 'w', newline='') as f:
     # Writing to CSV file/Json
     for key, value in dictionary.items():
         writer.writerow([key, value])
-    with open('data.json','w') as fp:
+    with open('data.json','w',newline='') as fp:
         json.dump(dictionary,fp)
     
 file.close()
+
 
 
 main()
