@@ -7,51 +7,9 @@ import time
 import sys
 
 def main():
-    login()
+    searchbrand()
     
 
-def login():
-    print("-------------------------------------")
-    print("This program Searches for the prices of the Latest GPU's on NewEgg.com")
-    time.sleep(1)
-    print("-------------------------------------")
-    print('A copy of the latest prices and models has been saved as a CSV file')
-    print("-------------------------------------")
-    print(len(dictionary), 'GPUs found on Newegg.com')
-    time.sleep(1)
-    menu()
-
-def menu():
-    print("************MAIN MENU**************")
-    time.sleep(1)
-    print()
-
-    choice = input("""
-        1: Search By Brand
-        2: Search By Price
-        3: Search By Memory
-        4: Search By Keyword
-        5: Show All
-        6: Quit/Log Out
-
-   Please enter your choice: """)
-
-    if choice == "1":
-        searchbrand()
-    elif choice == "2":
-        searchprice()
-    elif choice=="3":
-        showall()
-    elif choice=="4":
-        showall()
-    elif choice=="5":
-        showall()
-    elif choice=="6":
-        sys.exit
-    else:
-        print("You must only select either 1-6.")
-        print("Please try again")
-        menu()
 
 def searchbrand():
     keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
