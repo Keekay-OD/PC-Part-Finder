@@ -7,20 +7,37 @@ import time
 import sys
 
 def main():
-    searchbrand()
-    
-
-
-def searchbrand():
     keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
-    for i in range(0, len(dictionary), 1):
-        if dictionary[i] == keyVal:
-            print(dictionary)
-			
-    else:
-        print('This GPU isnt on Newegg.com')
-        menu()   
     
+    searchbrand(dictionary,keyVal)
+    
+
+
+class revert:
+    self.searchbrand(dictOfElements, valueToFind):
+        listOfKeys = list()
+        listOfItems = dictOfElements.items()
+        for item  in listOfItems:
+            if item[1] == valueToFind:
+                listOfKeys.append(item[0])
+        listOfKeys = self.searchbrand(dictionary, 43)
+        print("Keys with value equal to 43")
+#Iterate over the list of keys
+        for key  in listOfKeys:
+            print(key)
+   
+   
+   
+   
+   
+   # keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
+  #  for key, val in dictionary.items():
+  #      if keyVal in keyVal:
+      #      x = {key:val}
+   #         print("Found a match! {}".format(x))
+   #         break
+  #      else:
+   #         print("Nothing found")
     
      
     
