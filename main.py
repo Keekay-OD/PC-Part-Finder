@@ -5,26 +5,27 @@ import csv
 import json
 import time
 import sys
+from difflib import get_close_matches
+
 
 def main():
+    searchbrand()
+    
+
+
+def searchbrand():
     keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
-    
-    searchbrand(dictionary,keyVal)
-    
+    if keyVal == 'ALL':
+        for key in dictionary.keys():
+            print ('Name: {} Price: {}'.format(dictionary[key]))
 
+    if keyVal in dictionary:
+        print ('{} has {} years old.'.format(keyVal, dictionary[keyVal]))
+    else:
+    # you can to create a new registry or show error warning message here.
+        print('Not found {}.'.format(keyVal))
 
-class revert:
-    self.searchbrand(dictOfElements, valueToFind):
-        listOfKeys = list()
-        listOfItems = dictOfElements.items()
-        for item  in listOfItems:
-            if item[1] == valueToFind:
-                listOfKeys.append(item[0])
-        listOfKeys = self.searchbrand(dictionary, 43)
-        print("Keys with value equal to 43")
-#Iterate over the list of keys
-        for key  in listOfKeys:
-            print(key)
+    
    
    
    
