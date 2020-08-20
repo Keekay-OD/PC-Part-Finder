@@ -6,62 +6,48 @@ import json
 import time
 import sys
 from difflib import get_close_matches
-
+import exampll
 
 def main():
-    searchbrand()
-    
+    #search = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
+    #searchbrand(search)
+    print(get_key(MSI)) 
+    print(get_key(EVGA))
 
-
-def searchbrand():
-    keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
-    if keyVal == 'ALL':
-        for key in dictionary.keys():
-            print ('Name: {} Price: {}'.format(dictionary[key]))
-
-    if keyVal in dictionary:
-        print ('{} has {} years old.'.format(keyVal, dictionary[keyVal]))
-    else:
-    # you can to create a new registry or show error warning message here.
-        print('Not found {}.'.format(keyVal))
-
-    
-   
-   
-   
-   
-   
-   # keyVal = input("Enter a Brand Name eg:MSI, EVGA, ASUS: \n Search:")
-  #  for key, val in dictionary.items():
-  #      if keyVal in keyVal:
-      #      x = {key:val}
-   #         print("Found a match! {}".format(x))
-   #         break
-  #      else:
-   #         print("Nothing found")
-    
-     
-    
-    
-   
+def get_key(key): 
+    for key, value in dictionary.items(): 
+         if key == key: 
+             return key 
   
+    return "key doesn't exist"
+
+
+
+  
+ 
+    
+def searchbrand(val):
+    for key, value in dictionary.items(): 
+         if val == value: 
+             print(key) 
+
+    return "key doesn't exist"
+
+
 
 
 def showall():
     for x in dictionary:
-        print (x,':')
+        print(x, ':')
         for y in dictionary[x]:
-            print (y,':',dictionary)
+            print(y, ':', dictionary)
     menu()
-
-
-
 
 
 # Website you will be scraping from
 url = "https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709&PageSize=96"
 
-page = urllib.request.urlopen(url)      
+page = urllib.request.urlopen(url)
 soup = BeautifulSoup(page, 'html.parser')
 regex = re.compile('^tocsection-')
 workbook = "products.csv"
@@ -85,7 +71,7 @@ for li in product_price:
 # converting list from data to Dictionary
 dictionary = dict(zip(models, prices))
 
-#Writing Header
+# Writing Header
 with open('products.csv', 'w', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['Model', 'Prices'])
@@ -93,14 +79,10 @@ with open('products.csv', 'w', newline='') as f:
     # Writing to CSV file/Json
     for key, value in dictionary.items():
         writer.writerow([key, value])
-    with open('data.json','w',newline='') as fp:
-        json.dump(dictionary,fp)
-    
+    with open('data.json', 'w', newline='') as fp:
+        json.dump(dictionary, fp)
+
 file.close()
 
 
-
 main()
-
-
-
