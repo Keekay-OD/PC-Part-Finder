@@ -15,7 +15,7 @@ Notifications for lowest prices
 
 ##  Demo
 
-![Iterm](./page.png "Flash Front End")
+![Iterm](./page.png "Flask Front End")
 ![Iterm](./screenshot2.png "Terminal Output")
 ![Numbers](./screenshot.png "CSV/Excel File Output")
 
