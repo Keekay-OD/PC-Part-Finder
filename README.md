@@ -5,6 +5,7 @@ Web Scraper
 This searches Newegg.com for the latest GPU prices and organizes them in an Excel Spreadsheet and Json File.
 
 JavaScript for Frontend Search
+
 Flask/Python3 for backend
 
 # Coming Soon 
