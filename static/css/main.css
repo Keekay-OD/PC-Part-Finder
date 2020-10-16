@@ -855,7 +855,7 @@ legend {
 }
 
 .s129 form .inner-form .input-field input.placeholder {
-  color: #fff;
+  color: rgb(29, 31, 128);
   font-size: 18px;
 }
 
@@ -865,7 +865,7 @@ legend {
 }
 
 .s129 form .inner-form .input-field input::-webkit-input-placeholder {
-  color: #fff;
+  color: rgb(80, 26, 26);
   font-size: 18px;
 }
 

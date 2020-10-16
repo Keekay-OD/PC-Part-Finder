@@ -12,12 +12,14 @@
 
 
 <table>
-    {% for key, value in result.items() %}
+   {% for t in table %}
        <tr>
-            <th> {{ key }} </th>
-            <td> {{ value }} </td>
+       {% for i in t %}
+           <td>{{ i }}</td>
+       {% endfor %}
        </tr>
-    {% endfor %}
+   {% endfor %}
     </table>
+   
 
 

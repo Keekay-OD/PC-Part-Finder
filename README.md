@@ -26,3 +26,19 @@ Notifications for lowest prices
 
 - [Python3](http://python.org)
 - [Beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
+
+
+
+
+
+""" @app.route("/results", methods=['POST'])
+def searchbrand():
+    search = request.form('text')
+    Table = []
+    res2 = dict(filter(lambda item: search in item[0], dictionary.items()))
+    for key, value in res2.items():
+        temp = []
+        # Note that this will change depending on the structure of your dictionary
+        temp.extend([key, value])
+        Table.append(temp)
+ """
