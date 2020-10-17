@@ -26,7 +26,7 @@ class Price(Base):
     __tablename__ = "prices"
 
     id = Column(Integer, primary_key=True)
-    title = Column(String)
+    gpu = Column(String)
     
 
     brand_id = Column(Integer, ForeignKey("brands.id"))

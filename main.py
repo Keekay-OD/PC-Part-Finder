@@ -6,15 +6,15 @@ from models import Price
 from flask_table import table
 from main1 import *
 from flask.app import Flask
-from bs4.builder._html5lib import e
 
 
-init_db()
 main1()
+init_db()
+
 
 
 app = Flask(__name__)
-
+app.secret_key = "super secret key"
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -25,14 +25,21 @@ def index():
     return render_template('index.html', form=search)
 
 
+
+  
+    
+    
+
 @app.route('/results')
 def search_results(search):
+    res2 = dict(filter(lambda item: search.data['search'] in item[0], dictionary.items()))
     results = []
     search_string = search.data['search']
 
     if search.data['search'] == '':
-        qry = db_session.query(Price)
-        results = qry.all()
+        for key, value in res2.items():
+            qry = db_session.query(Price)
+            results = res2.all()
 
     if not results:
         flash('No results found!')

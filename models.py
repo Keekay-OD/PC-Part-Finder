@@ -20,13 +20,11 @@ class Price(db.Model):
     __tablename__ = "prices"
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String)
-    release_date = db.Column(db.Date)
-    publisher = db.Column(db.String)
-    media_type = db.Column(db.String)
+    price = db.Column(db.String)
+  
 
-    artist_id = db.Column(db.Integer, db.ForeignKey("brands.id"))
-    artist = db.relationship("Brand", backref=db.backref(
+    brand_id = db.Column(db.Integer, db.ForeignKey("brands.id"))
+    brand = db.relationship("Brand", backref=db.backref(
         "prices", order_by=id), lazy=True)
 
 
