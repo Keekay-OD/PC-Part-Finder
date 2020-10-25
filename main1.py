@@ -10,7 +10,7 @@ from wtforms.validators import url
 
 
 def main1():
-    pass  # Website you will be scraping from
+    pass  
 
 
 url = "https://www.newegg.com/Desktop-Graphics-Cards/SubCategory/ID-48?Tid=7709&PageSize=96"

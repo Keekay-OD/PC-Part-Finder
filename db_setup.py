@@ -15,9 +15,18 @@ Base = declarative_base()
 Base.query = db_session.query_property()
 
 
+    
 
 def current_prices():
-    
+    db_session.execute(dictionary.insert()), [ 
+        {'id':'12','name':'a','lang':'eng'},
+        {'id':'13','name':'b','lang':'eng'},
+        {'id':'14','name':'c','lang':'eng'},
+    ]
+)
+    db_session.commit()
+        
+
 
 
 

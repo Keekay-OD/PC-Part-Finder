@@ -1,5 +1,5 @@
 from app import app
-from db_setup import init_db, db_session
+from db_setup import init_db, db_session, current_prices
 from forms import GPUSearchForm
 from flask import flash, render_template, request, redirect
 from models import Price
@@ -9,6 +9,7 @@ from flask.app import Flask
 
 
 main1()
+current_prices()
 init_db()
 
 
@@ -32,6 +33,7 @@ def index():
 
 @app.route('/results')
 def search_results(search):
+    current_prices()
     res2 = dict(filter(lambda item: search.data['search'] in item[0], dictionary.items()))
     results = []
     search_string = search.data['search']
